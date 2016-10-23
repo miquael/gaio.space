@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gaio.Space</title>
+    <meta name="description" content="http://Gaio.Space">
+    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+    <script src="http://cdn.rawgit.com/donmccurdy/aframe-extras/v2.6.0/dist/aframe-extras.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+
+        <!-- Asset management system -->
+        <a-assets>
+
+            <img id="JALAKA_SIB" src="/images/JALAKA_SIB.jpg">
+            <img id="GAIO_banner" src="/images/GAIO_iconic_860x490.jpg">
+
+            <img id="africa-hightech" src="/images/03_Africa_Hitech_o_4_905.jpg">
+            <img id="JALAKA-GRID" src="/images/JALAKA_GRID_1024x1024.png">
+            <img id="blue_fractalquap" src="/images/blue_fractalquap.jpg">
+
+            <img id="platonic_disc_question" src="images/platonic_masters/Platonic_0.png">
+            <img id="platonic_disc_VE" src="/images/platonic_masters/Platonic_000.png">
+            <img id="platonic_disc_TETRA" src="/images/platonic_masters/Platonic_1.png">
+            <img id="platonic_disc_OCTA" src="/images/platonic_masters/Platonic_2.png">
+            <img id="platonic_disc_CUBE" src="/images/platonic_masters/Platonic_3.png">
+            <img id="platonic_disc_ICOSA" src="/images/platonic_masters/Platonic_4.png">
+            <img id="platonic_disc_DODECA" src="/images/platonic_masters/Platonic_5.png">
+
+            <img id="Blue_Hex1" src="/images/Blue_Hex_UI_banner.jpg">
+
+        </a-assets>
+
+        <!-- Scene /////////////////////////////////////////////////////////////// -->
+
+        <!-- CAM -->
+        <a-entity camera look-controls wasd-controls position="0 2 6" acceleration="100" easing="200" fly="true">
+            <!-- HUD
+            <a-entity geometry="primitive: plane; height: 0.02; width: 0.02" position="-0.12 -0.07 -0.1"
+                      material="color: white; opacity: 0.5"></a-entity>
+            -->
+            <a-cursor id="cursor" color="#2E3A87">
+                <a-animation begin="click" easing="ease-in" attribute="scale"
+                   fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
+                 <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
+                   from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
+            </a-cursor>
+        </a-entity>
+
+        <!-- Environment -->
+        <a-sky src="#blue_fractalquap" color="#9999DD">
+        </a-sky>
+
+        <a-entity light="type: ambient; color: #eee; intensity: 0.75"></a-entity>
+        <a-entity light="color: #fef3ac; intensity: 0.75" position="-1 1 0"></a-entity>
+
+        <!-- TEMPLE ///////////////////////////////////////////// -->
+        <a-entity id="temple" position="0 0 -10">
+            <!--
+            <a-entity meshline="lineWidth: 40; path: -6 1 8, 0 6 8, 5 -1; color: #EEAA00"></a-entity>
+            -->
+
+            <!-- Platonic UI -->
+            <a-entity id="platonic_UI" position="-8 2.8 9" rotation="0 90 0">
+
+                <a-circle position="0 0 0" radius="0.5" material="shader: flat; src: #platonic_disc_question" side="double">
+                    <a-animation attribute="theta-length"
+                       begin="click"
+                       dur="5000"
+                       fill="forwards"
+                       to="360"
+                       easing="linear"
+                       repeat="0">
+                   </a-animation>
+                </a-circle>
+
+                <a-circle position="0 1 0" radius="0.5" src="#platonic_disc_VE" side="double"></a-circle>
+
+                <a-circle position="-0.87 0.5 0" radius="0.5" material="shader: flat; src: #platonic_disc_TETRA" side="double"></a-circle>
+                <a-circle position="-0.87 -0.5 0" radius="0.5" material="shader: flat; src: #platonic_disc_OCTA" side="double"></a-circle>
+                <a-circle position="0 -1 0" radius="0.5" material="shader: flat; src: #platonic_disc_CUBE" side="double"></a-circle>
+                <a-circle position="0.87 -0.5 0" radius="0.5" material="shader: flat; src: #platonic_disc_ICOSA" side="double"></a-circle>
+                <a-circle position="0.87 0.5 0" radius="0.5" material="shader: flat; src: #platonic_disc_DODECA" side="double"></a-circle>
+
+            </a-entity>
+
+            <!-- Super Sun -->
+            <a-entity position="0 7 0">
+                <a-sphere position="0 0 0" material="shader: flat; src: #africa-hightech" radius="3.5">
+                    <a-entity position="0 0 0">
+                        <a-sphere position="5 0 0" color="#ff7777" radius="0.5"></a-sphere>
+                        <a-animation attribute="rotation" dur="3000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+                    </a-entity>
+                    <a-entity position="0 0 0">
+                        <a-sphere position="0 5 0" color="#77ff77" radius="0.5"></a-sphere>
+                        <a-animation attribute="rotation" dur="3000" to="0 0 360" easing="linear" repeat="indefinite"></a-animation>
+                    </a-entity>
+                    <a-entity position="0 0 0">
+                        <a-sphere position="0 0 5" color="#7777ff" radius="0.5"></a-sphere>
+                        <a-animation attribute="rotation" dur="3000" to="360 0 0" easing="linear" repeat="indefinite"></a-animation>
+                    </a-entity>
+                </a-sphere>
+                <a-animation attribute="rotation" dur="30000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+            </a-entity>
+
+            <!-- Rotator -->
+            <a-entity position="-16 1.01 -16">
+                <a-sphere position="0 5 0" radius="3" color="#000022" material="shader: flat"></a-sphere>
+                <a-cylinder position="0 3 0" radius="3" height="5" color="#ffffff" material="shader: flat; src: #Blue_Hex1"></a-cylinder>
+
+                <a-curvedimage material="shader: flat; src: #JALAKA_SIB" position="0 3 0" height="3" radius="3.5" theta-length="72" rotation="0 0 0" scale="1 1 1" roughness="1">
+                         <a-animation attribute="rotation"
+                            dur="10000"
+                            fill="forwards"
+                            to="0 360 0"
+                            easing="linear"
+                            repeat="indefinite">
+                        </a-animation>
+                </a-curvedimage>
+
+                <a-curvedimage material="shader: flat; src: #GAIO_banner" position="0 6 0" height="3" radius="3.5" theta-length="72" rotation="0 0 0" scale="1 1 1" roughness="1">
+                         <a-animation attribute="rotation"
+                            dur="20000"
+                            fill="forwards"
+                            to="0 360 0"
+                            easing="linear"
+                            repeat="indefinite">
+                        </a-animation>
+                </a-curvedimage>
+            </a-entity
+
+
+            <!-- Arches -->
+            <a-torus position="0 0 0" color="#ccEEDD" arc="180" radius="15" radius-tubular="0.5"></a-torus>
+            <a-torus position="0 0 0" color="#ccEEDD" arc="180" radius="30" radius-tubular="0.5"></a-torus>
+
+            <!-- Pillars -->
+            <a-cylinder opacity="1" position="16 1.25 -16" radius="5" height="5" color="#003366"></a-cylinder>
+
+
+            <a-entity position="-16 0.01 16">
+                <a-cylinder position="0 0 0" radius="9" height="2" color="#003366"></a-cylinder>
+                <a-cylinder position="0 0 0" radius="7" height="2.5" color="#003366"></a-cylinder>
+                <a-cylinder position="0 0 0" radius="5" height="3" color="#003366"></a-cylinder>
+
+                <!-- Platonic Gems -->
+                <a-entity>
+                    <a-tetrahedron position="0 10 0"color="#cc3333" radius="2" opacity="0.6"></a-tetrahedron>
+                    <a-octahedron position="0 5 0" color="#33cc33" radius="2" opacity="0.6"></a-octahedron>
+                    <a-animation attribute="rotation"
+                       dur="10000"
+                       fill="forwards"
+                       to="0 360 0"
+                       easing="linear"
+                       repeat="indefinite">
+                   </a-animation>
+               </a-entity>
+            </a-entity>
+
+            <a-entity position="0 0.01 0">
+                <a-cylinder position="0 0 0" radius="9" height="2" color="#003366"></a-cylinder>
+                <a-cylinder position="0 0 0" radius="7" height="2.5" color="#003366"></a-cylinder>
+                <a-cylinder position="0 0 0" radius="5" height="3" color="#003366"></a-cylinder>
+            </a-entity>
+
+            <a-entity position="-16 0.01 -16">
+                <a-cylinder position="0 0 0" radius="9" height="2" color="#003366"></a-cylinder>
+                <a-cylinder position="0 0 0" radius="7" height="2.5" color="#003366"></a-cylinder>
+                <a-cylinder position="0 0 0" radius="5" height="3" color="#003366"></a-cylinder>
+            </a-entity>
+
+            <a-cylinder opacity="1" position="16 1.25 16" radius="5" height="5" color="#003366"></a-cylinder>
+
+            <!-- Pyramids -->
+            <a-octahedron position="-30 0 0" color="#006699" radius="24"></a-octahedron>
+            <a-octahedron position="30 0 0" color="#006699" radius="24"></a-octahedron>
+
+            <!-- Platform -->
+            <a-box position="0 0 0" color="#336699" depth="50" height="1.5" width="30"></a-box>
+
+        </a-entity>
+
+        <!-- OCEAN -->
+        <a-ocean width="128"
+                 depth="128"
+                 density="40"
+                 opacity="1"
+                 position="0 0 0"></a-ocean>
+
+    </a-scene>
+  </body>
+</html>
