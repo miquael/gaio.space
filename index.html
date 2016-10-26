@@ -5,10 +5,11 @@
     <title>Gaio.Space</title>
     <meta name="description" content="http://Gaio.Space">
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
-    <script src="http://cdn.rawgit.com/donmccurdy/aframe-extras/v2.6.0/dist/aframe-extras.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v2.6.0/dist/aframe-extras.min.js"></script>
+    <script src="lib/aframe.min.js"></script>
   </head>
   <body>
-    <a-scene>
+    <a-scene >
 
         <!-- Asset management system -->
         <a-assets>
@@ -29,6 +30,21 @@
             <img id="platonic_disc_DODECA" src="/images/platonic_masters/Platonic_5.png">
 
             <img id="Blue_Hex1" src="/images/Blue_Hex_UI_banner.jpg">
+
+            <!-- disk pad template -->
+            <script id="circle" type="text/nunjucks">
+                <a-circle   class="link"
+                            radius="0.5"
+                            material="shader: flat; src: {{ image }}"
+                            side="double"
+                </a-circle>
+            </script>
+Î
+            <script id="plane" type="text/nunjucks">
+                <a-plane class="link" height="1" width="1"
+                         material="shader: flat; src: {{ thumb }}"
+                </a-plane>
+            </script>
 
         </a-assets>
 
@@ -75,6 +91,17 @@
                    </a-animation>
                 </a-circle>
 
+                <a-entity layout="type: circle; radius: 2" position="0 1 0">
+                      <a-entity template="src: #circle" position="0 1 0" data-image="#platonic_disc_VE"></a-entity>
+
+                </a-entity>
+
+                <a-entity id="links" layout="layout: line; margin: .75" position="-3 -1 -4">
+                  <a-entity template="src: #plane" data-thumb="#platonic_disc_VE"></a-entity>
+                  <a-entity template="src: #plane" data-thumb="#platonic_disc_VE"></a-entity>
+                  <a-entity template="src: #plane" data-thumb="#platonic_disc_VE"></a-entity>
+                </a-entity>
+            <!--
                 <a-circle position="0 1 0" radius="0.5" src="#platonic_disc_VE" side="double"></a-circle>
 
                 <a-circle position="-0.87 0.5 0" radius="0.5" material="shader: flat; src: #platonic_disc_TETRA" side="double"></a-circle>
@@ -82,7 +109,7 @@
                 <a-circle position="0 -1 0" radius="0.5" material="shader: flat; src: #platonic_disc_CUBE" side="double"></a-circle>
                 <a-circle position="0.87 -0.5 0" radius="0.5" material="shader: flat; src: #platonic_disc_ICOSA" side="double"></a-circle>
                 <a-circle position="0.87 0.5 0" radius="0.5" material="shader: flat; src: #platonic_disc_DODECA" side="double"></a-circle>
-
+            -->
             </a-entity>
 
             <!-- Super Sun -->
