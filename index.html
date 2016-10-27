@@ -12,10 +12,10 @@
   <body>
     <a-scene>
 
-        <!-- Asset management system -->
+        <!-- Asset management system //////////////////////////////////////// -->
         <a-assets>
 
-            <!-- IMAGE ASSETS -->
+            <!-- IMAGE ASSETS /////////////////// -->
             <img id="JALAKA_SIB"                src="/images/JALAKA_SIB.jpg">
             <img id="GAIO_banner"               src="/images/GAIO_iconic_860x490.jpg">
 
@@ -33,12 +33,17 @@
 
             <img id="Blue_Hex1"                 src="/images/Blue_Hex_UI_banner.jpg">
 
+            <!-- TEMPLATE ASSETS /////////////////// -->
+
             <!-- disk pad template -->
             <script id="circle-pad" type="text/nunjucks">
                 <a-circle   class="circle"
                             radius="0.5"
                             material="shader: flat; src: {{ image }}"
                             side="double"
+                            event-set__1="_event: mouseup; scale: 1 1 1"
+                            event-set__2="_event: mousedown; scale: 0.8 0.8 1"
+                            event-set__4="_event: mouseleave; scale: 1 1 1"
                 </a-circle>
             </script>
 
@@ -49,6 +54,8 @@
                         height="0.5"
                         width="0.5"
                         material="shader: flat; opacity: 0.6; color: {{ hex }}"
+                        event-set__3="_event: mouseenter; scale: 1.2 1.2 1; opacity: 1"
+                        event-set__4="_event: mouseleave; scale: 1 1 1"
                 </a-box>
             </script>
 
@@ -166,13 +173,17 @@
                 </a-curvedimage>
             </a-entity>
 
-            <!-- VOXY BOXES -->
-
+            <!-- VOXY BOX CUBE -->
             <a-entity id="voxy-box-set" position="16 8 16" scale="2 2 2">
 
-                <a-entity template="src: #voxy-box-plane" position="0 0 0"></a-entity>
-                <a-entity template="src: #voxy-box-plane" position="0 0 -1"></a-entity>
-                <a-entity template="src: #voxy-box-plane" position="0 0 1"></a-entity>
+                <a-entity template="src: #voxy-box-plane" position="0 0 0">
+                </a-entity>
+
+                <a-entity template="src: #voxy-box-plane" position="0 0 -1">
+                </a-entity>
+
+                <a-entity template="src: #voxy-box-plane" position="0 0 1">
+                </a-entity>
 
                 <!--<a-entity template="src: #standard-rotation" data-roto="360 360 360"></a-entity> ??? -->
 
@@ -183,7 +194,6 @@
                    easing="linear"
                    repeat="indefinite">
                 </a-animation>
-
 
             </a-entity>
 
