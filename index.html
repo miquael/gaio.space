@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Gaio.Space</title>
     <meta name="description" content="http://Gaio.Space">
+
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v2.6.0/dist/aframe-extras.min.js"></script>
     <script src="https://rawgit.com/ngokevin/kframe/master/dist/kframe.min.js"></script>
@@ -14,20 +15,21 @@
         <!-- Asset management system -->
         <a-assets>
 
-            <img id="JALAKA_SIB" src="/images/JALAKA_SIB.jpg">
-            <img id="GAIO_banner" src="/images/GAIO_iconic_860x490.jpg">
+            <!-- IMAGE ASSETS -->
+            <img id="JALAKA_SIB"                src="/images/JALAKA_SIB.jpg">
+            <img id="GAIO_banner"               src="/images/GAIO_iconic_860x490.jpg">
 
-            <img id="africa-hightech" src="/images/03_Africa_Hitech_o_4_905.jpg">
-            <img id="JALAKA-GRID" src="/images/JALAKA_GRID_1024x1024.png">
-            <img id="blue_fractalquap" src="/images/blue_fractalquap.jpg">
+            <img id="africa-hightech"           src="/images/03_Africa_Hitech_o_4_905.jpg">
+            <img id="JALAKA-GRID"               src="/images/JALAKA_GRID_1024x1024.png">
+            <img id="blue_fractalquap"          src="/images/blue_fractalquap.jpg">
 
-            <img id="platonic_disc_question" src="images/platonic_masters/Platonic_0.png">
-            <img id="platonic_disc_VE" src="/images/platonic_masters/Platonic_000.png">
-            <img id="platonic_disc_TETRA" src="/images/platonic_masters/Platonic_1.png">
-            <img id="platonic_disc_OCTA" src="/images/platonic_masters/Platonic_2.png">
-            <img id="platonic_disc_CUBE" src="/images/platonic_masters/Platonic_3.png">
-            <img id="platonic_disc_ICOSA" src="/images/platonic_masters/Platonic_4.png">
-            <img id="platonic_disc_DODECA" src="/images/platonic_masters/Platonic_5.png">
+            <img id="platonic_disc_question"    src="images/platonic_masters/Platonic_0.png">
+            <img id="platonic_disc_VE"          src="/images/platonic_masters/Platonic_000.png">
+            <img id="platonic_disc_TETRA"       src="/images/platonic_masters/Platonic_1.png">
+            <img id="platonic_disc_OCTA"        src="/images/platonic_masters/Platonic_2.png">
+            <img id="platonic_disc_CUBE"        src="/images/platonic_masters/Platonic_3.png">
+            <img id="platonic_disc_ICOSA"       src="/images/platonic_masters/Platonic_4.png">
+            <img id="platonic_disc_DODECA"      src="/images/platonic_masters/Platonic_5.png">
 
             <img id="Blue_Hex1" src="/images/Blue_Hex_UI_banner.jpg">
 
@@ -42,7 +44,7 @@
 
         </a-assets>
 
-        <!-- Scene /////////////////////////////////////////////////////////////// -->
+        <!-- SCENE ///////////////////////////////////////////////////////////// -->
 
         <!-- CAM -->
         <a-entity camera look-controls wasd-controls position="0 2 6" acceleration="100" easing="200" fly="true">
@@ -58,24 +60,12 @@
             </a-cursor>
         </a-entity>
 
-        <!-- Environment -->
-        <a-sky src="#blue_fractalquap" color="#9999DD">
-        </a-sky>
-
-        <!-- Lighting -->
-        <a-light type="ambient" color="#ccc"></a-light>
-        <a-light color="#ddf" distance="100" intensity="0.4" type="point"></a-light>
-        <a-light color="#ddf" position="3 5 -10" distance="50" intensity="0.4" type="point"></a-light>
 
         <!-- TEMPLE ///////////////////////////////////////////// -->
         <a-entity id="temple" position="0 0 -10">
-            <!--
-            <a-entity meshline="lineWidth: 40; path: -6 1 8, 0 6 8, 5 -1; color: #EEAA00"></a-entity>
-            -->
 
             <!-- Platonic UI -->
             <a-entity id="platonic_UI" position="-8 2.8 9" rotation="0 90 0">
-
                 <a-circle position="0 0 0" radius="0.5" material="shader: flat; src: #platonic_disc_question" side="double">
                     <a-animation attribute="theta-length"
                        begin="click"
@@ -86,16 +76,12 @@
                        repeat="0">
                    </a-animation>
                 </a-circle>
-
-                <a-entity position="0 0 0">
-                      <a-entity template="src: #circle-pad" position="0 1 0" data-image="#platonic_disc_VE"></a-entity>
-                      <a-entity template="src: #circle-pad" position="-0.87 0.5 0" data-image="#platonic_disc_TETRA"></a-entity>
-                      <a-entity template="src: #circle-pad" position="-0.87 -0.5 0" data-image="#platonic_disc_OCTA"></a-entity>
-                      <a-entity template="src: #circle-pad" position="0 -1 0" data-image="#platonic_disc_CUBE"></a-entity>
-                      <a-entity template="src: #circle-pad" position="0.87 -0.5 0" data-image="#platonic_disc_ICOSA"></a-entity>
-                      <a-entity template="src: #circle-pad" position="0.87 0.5 0" data-image="#platonic_disc_DODECA"></a-entity>
-                </a-entity>
-
+                <a-entity template="src: #circle-pad" position="0 1 0" data-image="#platonic_disc_VE"></a-entity>
+                <a-entity template="src: #circle-pad" position="-0.87 0.5 0" data-image="#platonic_disc_TETRA"></a-entity>
+                <a-entity template="src: #circle-pad" position="-0.87 -0.5 0" data-image="#platonic_disc_OCTA"></a-entity>
+                <a-entity template="src: #circle-pad" position="0 -1 0" data-image="#platonic_disc_CUBE"></a-entity>
+                <a-entity template="src: #circle-pad" position="0.87 -0.5 0" data-image="#platonic_disc_ICOSA"></a-entity>
+                <a-entity template="src: #circle-pad" position="0.87 0.5 0" data-image="#platonic_disc_DODECA"></a-entity>
             </a-entity>
 
             <!-- Super Sun -->
@@ -193,6 +179,14 @@
             <a-box position="0 0 0" color="#336699" depth="50" height="1.5" width="30" material="shader: flat; repeat: 50; roughness: 1; metalness: 1; src: #JALAKA-GRID"></a-box>
 
         </a-entity>
+
+        <!-- Environment ///////////////////////////////////////////// -->
+        <a-sky src="#blue_fractalquap" color="#9999DD"></a-sky>
+
+        <!-- Lighting -->
+        <a-light type="ambient" color="#ccc"></a-light>
+        <a-light color="#ddf" distance="100" intensity="0.4" type="point"></a-light>
+        <a-light color="#ddf" position="3 5 -10" distance="50" intensity="0.4" type="point"></a-light>
 
         <!-- OCEAN -->
         <a-ocean width="128"
