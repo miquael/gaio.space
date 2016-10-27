@@ -6,11 +6,11 @@
     <meta name="description" content="http://Gaio.Space">
 
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
-    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v2.6.0/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v2.6.0/dist/aframe-extras.min.js"></script>
     <script src="https://rawgit.com/ngokevin/kframe/master/dist/kframe.min.js"></script>
   </head>
   <body>
-    <a-scene >
+    <a-scene>
 
         <!-- Asset management system -->
         <a-assets>
@@ -31,7 +31,7 @@
             <img id="platonic_disc_ICOSA"       src="/images/platonic_masters/Platonic_4.png">
             <img id="platonic_disc_DODECA"      src="/images/platonic_masters/Platonic_5.png">
 
-            <img id="Blue_Hex1" src="/images/Blue_Hex_UI_banner.jpg">
+            <img id="Blue_Hex1"                 src="/images/Blue_Hex_UI_banner.jpg">
 
             <!-- disk pad template -->
             <script id="circle-pad" type="text/nunjucks">
@@ -41,6 +41,24 @@
                             side="double"
                 </a-circle>
             </script>
+
+            <script id="voxy-box" type="text/nunjucks">
+                <a-box  class="box"
+                        depth="0.1"
+                        height="0.5"
+                        width="0.5"
+                        material="shader: flat; opacity: 0.6; color: {{ hex }}"
+                </a-box>
+            </script>
+
+            <!-- voxy box mixin -->
+            <a-mixin id="voxy-box-m"
+                geometry="primitive: box"
+                depth="0.1"
+                height="0.1"
+                width="1.5"
+                material="shader: flat; opacity: 0.6; color: #FF6600"
+            </a-mixin>
 
         </a-assets>
 
@@ -127,8 +145,55 @@
                             repeat="indefinite">
                         </a-animation>
                 </a-curvedimage>
-            </a-entity
+            </a-entity>
 
+            <!-- VOXY BOXES -->
+            <a-entity id="voxy-box-set" position="0 3 12">
+
+                <a-entity>
+                    <a-entity template="src: #voxy-box" position="0 0 -1"    data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="-1 0 -1"   data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="-1 -1 -1"  data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="-1 1 -1"   data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="0 -1 -1"   data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="0 1 -1"    data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="1 -1 -1"   data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="1 0 -1"    data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="1 1 -1"    data-hex="#FF6600"></a-entity>
+                </a-entity>
+
+                <a-entity>
+                    <a-entity template="src: #voxy-box" position="0 0 0"    data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="-1 0 0"   data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="-1 -1 0"  data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="-1 1 0"   data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="0 -1 0"   data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="0 1 0"    data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="1 -1 0"   data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="1 0 0"    data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="1 1 0"    data-hex="#FF6600"></a-entity>
+                </a-entity>
+
+                <a-entity>
+                    <a-entity template="src: #voxy-box" position="0 0 1"    data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="-1 0 1"   data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="-1 -1 1"  data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="-1 1 1"   data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="0 -1 1"   data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="0 1 1"    data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="1 -1 1"   data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="1 0 1"    data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="1 1 1"    data-hex="#FF6600"></a-entity>
+                </a-entity>
+
+                <a-animation attribute="rotation"
+                   dur="10000"
+                   fill="forwards"
+                   to="360 360 360"
+                   easing="linear"
+                   repeat="indefinite">
+                </a-animation>
+            </a-entity>
 
             <!-- Arches -->
             <a-torus position="0 0 0" color="#ccEEDD" arc="180" radius="15" radius-tubular="0.5"></a-torus>
