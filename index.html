@@ -51,14 +51,19 @@
                 </a-box>
             </script>
 
-            <!-- voxy box mixin -->
-            <a-mixin id="voxy-box-m"
-                geometry="primitive: box"
-                depth="0.1"
-                height="0.1"
-                width="1.5"
-                material="shader: flat; opacity: 0.6; color: #FF6600"
-            </a-mixin>
+            <script id="voxy-box-plane" type="text/nunjucks">
+                <a-entity  class="box-plane"
+                    <a-entity template="src: #voxy-box" position="0 0 0"    data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="-1 0 0"   data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="-1 -1 0"  data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="-1 1 0"   data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="0 -1 0"   data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="0 1 0"    data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="1 -1 0"   data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="1 0 0"    data-hex="#FF6600"></a-entity>
+                    <a-entity template="src: #voxy-box" position="1 1 0"    data-hex="#FF6600"></a-entity>
+                </a-entity>
+            </script>
 
         </a-assets>
 
@@ -148,43 +153,12 @@
             </a-entity>
 
             <!-- VOXY BOXES -->
-            <a-entity id="voxy-box-set" position="0 3 12">
 
-                <a-entity>
-                    <a-entity template="src: #voxy-box" position="0 0 -1"    data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="-1 0 -1"   data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="-1 -1 -1"  data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="-1 1 -1"   data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="0 -1 -1"   data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="0 1 -1"    data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="1 -1 -1"   data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="1 0 -1"    data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="1 1 -1"    data-hex="#FF6600"></a-entity>
-                </a-entity>
+            <a-entity id="voxy-box-set" position="16 8 16" scale="2 2 2">
 
-                <a-entity>
-                    <a-entity template="src: #voxy-box" position="0 0 0"    data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="-1 0 0"   data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="-1 -1 0"  data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="-1 1 0"   data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="0 -1 0"   data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="0 1 0"    data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="1 -1 0"   data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="1 0 0"    data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="1 1 0"    data-hex="#FF6600"></a-entity>
-                </a-entity>
-
-                <a-entity>
-                    <a-entity template="src: #voxy-box" position="0 0 1"    data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="-1 0 1"   data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="-1 -1 1"  data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="-1 1 1"   data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="0 -1 1"   data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="0 1 1"    data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="1 -1 1"   data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="1 0 1"    data-hex="#FF6600"></a-entity>
-                    <a-entity template="src: #voxy-box" position="1 1 1"    data-hex="#FF6600"></a-entity>
-                </a-entity>
+                <a-entity template="src: #voxy-box-plane" position="0 0 0"></a-entity>
+                <a-entity template="src: #voxy-box-plane" position="0 0 -1"></a-entity>
+                <a-entity template="src: #voxy-box-plane" position="0 0 1"></a-entity>
 
                 <a-animation attribute="rotation"
                    dur="10000"
@@ -202,12 +176,10 @@
             <!-- Pillars -->
             <a-cylinder opacity="1" position="16 1.25 -16" radius="5" height="5" color="#003366"></a-cylinder>
 
-
             <a-entity position="-16 0.01 16">
                 <a-cylinder position="0 0 0" radius="9" height="2" color="#003366"></a-cylinder>
                 <a-cylinder position="0 0 0" radius="7" height="2.5" color="#003366"></a-cylinder>
                 <a-cylinder position="0 0 0" radius="5" height="3" color="#003366"></a-cylinder>
-
                 <!-- Platonic Gems -->
                 <a-entity>
                     <a-tetrahedron position="0 10 0"color="#cc3333" radius="2" opacity="0.6"></a-tetrahedron>
@@ -234,7 +206,7 @@
                 <a-cylinder position="0 0 0" radius="5" height="3" color="#003366"></a-cylinder>
             </a-entity>
 
-            <a-cylinder opacity="1" position="16 1.25 16" radius="5" height="5" color="#003366"></a-cylinder>
+            <a-cylinder opacity="1" position="16 1.25 16" radius="5" height="3" color="#003366"></a-cylinder>
 
             <!-- Pyramids -->
             <a-octahedron position="-30 0 0" color="#006699" radius="24"></a-octahedron>
