@@ -109,7 +109,7 @@
         <a-entity id="temple" position="0 0 -10">
 
             <!-- Platonic UI -->
-            <a-entity id="platonic_UI" position="-8 2.8 9" rotation="0 90 0">
+            <a-entity id="platonic_UI" position="-11 2.8 7" rotation="0 90 0">
                 <a-circle position="0 0 0" radius="0.5" material="shader: flat; src: #platonic_disc_question" side="double">
                     <a-animation attribute="theta-length"
                        begin="click"
@@ -178,15 +178,11 @@
 
                 <a-entity template="src: #voxy-box-plane" position="0 0 0">
                 </a-entity>
-
                 <a-entity template="src: #voxy-box-plane" position="0 0 -1">
                 </a-entity>
-
                 <a-entity template="src: #voxy-box-plane" position="0 0 1">
                 </a-entity>
-
                 <!--<a-entity template="src: #standard-rotation" data-roto="360 360 360"></a-entity> ??? -->
-
                 <a-animation attribute="rotation"
                    dur="10000"
                    fill="forwards"
@@ -209,9 +205,12 @@
                 <a-cylinder position="0 0 0" radius="7" height="2.5" color="#003366"></a-cylinder>
                 <a-cylinder position="0 0 0" radius="5" height="3" color="#003366"></a-cylinder>
                 <!-- Platonic Gems -->
-                <a-entity>
-                    <a-tetrahedron position="0 10 0"color="#cc3333" radius="2" opacity="0.6"></a-tetrahedron>
-                    <a-octahedron position="0 5 0" color="#33cc33" radius="2" opacity="0.6"></a-octahedron>
+                <a-entity layout="type: circle; radius: 3" position="0 2 0">
+                    <a-tetrahedron  position="0 3 0"    color="#f74c25" opacity="0.8" radius="1"></a-tetrahedron>
+                    <a-octahedron   position="0 6 0"    color="#FFCC33" opacity="0.8" radius="1"></a-octahedron>
+                    <a-box          position="0 9 0"    color="#69AB00" opacity="0.8" width="1.2" depth="1.2" height="1.2"></a-box>
+                    <a-icosahedron  position="0 12 0"   color="#1E7ccc" opacity="0.8" radius="1"></a-icosahedron>
+                    <a-dodecahedron position="0 15 0"   color="#AF00C9" opacity="0.8" radius="1"></a-dodecahedron>
                     <a-animation attribute="rotation"
                        dur="10000"
                        fill="forwards"
