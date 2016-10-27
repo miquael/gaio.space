@@ -42,6 +42,7 @@
                 </a-circle>
             </script>
 
+            <!-- voxy box template -->
             <script id="voxy-box" type="text/nunjucks">
                 <a-box  class="box"
                         depth="0.1"
@@ -51,6 +52,7 @@
                 </a-box>
             </script>
 
+            <!-- voxy box plane template -->
             <script id="voxy-box-plane" type="text/nunjucks">
                 <a-entity  class="box-plane"
                     <a-entity template="src: #voxy-box" position="0 0 0"    data-hex="#FF6600"></a-entity>
@@ -63,6 +65,18 @@
                     <a-entity template="src: #voxy-box" position="1 0 0"    data-hex="#FF6600"></a-entity>
                     <a-entity template="src: #voxy-box" position="1 1 0"    data-hex="#FF6600"></a-entity>
                 </a-entity>
+            </script>
+
+            <!-- standard rotation ??? not yet working ? -->
+            <script id="standard-rotation" type="text/nunjucks">
+                <a-animation
+                    attribute="rotation"
+                    dur="10000"
+                    fill="forwards"
+                    to="{{ roto }}"
+                    easing="linear"
+                    repeat="indefinite">
+               </a-animation>
             </script>
 
         </a-assets>
@@ -160,6 +174,8 @@
                 <a-entity template="src: #voxy-box-plane" position="0 0 -1"></a-entity>
                 <a-entity template="src: #voxy-box-plane" position="0 0 1"></a-entity>
 
+                <!--<a-entity template="src: #standard-rotation" data-roto="360 360 360"></a-entity> ??? -->
+
                 <a-animation attribute="rotation"
                    dur="10000"
                    fill="forwards"
@@ -167,6 +183,8 @@
                    easing="linear"
                    repeat="indefinite">
                 </a-animation>
+
+
             </a-entity>
 
             <!-- Arches -->
