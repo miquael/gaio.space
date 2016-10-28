@@ -42,8 +42,20 @@
                             side="double"
                             event-set__1="_event: mouseup; scale: 1 1 1"
                             event-set__2="_event: mousedown; scale: 0.8 0.8 1"
-                            event-set__4="_event: mouseleave; scale: 1 1 1"
+                            event-set__4="_event: mouseleave; scale: 1 1 1">
                 </a-circle>
+            </script>
+
+            <!-- UI RING template -->
+            <script id="ui-ring" type="text/nunjucks">
+                <a-ring     class="ring"
+                            radius-inner="{{ radi }}"
+                            radius-outer="{{ rado }}"
+                            theta-length="{{ thel }}"
+                            theta-start="{{ thes }}"
+                            material="shader: flat; color: #FFFFFF"
+                            side="double">
+                </a-ring>
             </script>
 
             <!-- voxy box template -->
@@ -54,7 +66,7 @@
                         width="0.5"
                         material="shader: flat; opacity: 0.6; color: {{ hex }}"
                         event-set__3="_event: mouseenter; scale: 1.2 1.2 1; depth: 0.5; opacity: 0.8; color: #7766CC"
-                        event-set__4="_event: mouseleave; scale: 1 1 1"
+                        event-set__4="_event: mouseleave; scale: 1 1 1">
                 </a-box>
             </script>
 
@@ -73,7 +85,7 @@
                 </a-entity>
             </script>
 
-            <!-- standard rotation ??? not yet working ? -->
+            <!-- standard rotation ??? not yet working ?
             <script id="standard-rotation" type="text/nunjucks">
                 <a-animation
                     attribute="rotation"
@@ -83,7 +95,7 @@
                     easing="linear"
                     repeat="indefinite">
                </a-animation>
-            </script>
+            </script>  -->
 
         </a-assets>
 
@@ -111,10 +123,57 @@
         <!-- TEMPLE ///////////////////////////////////////////// -->
         <a-entity id="temple" position="0 0 -10">
 
-            <!-- Platonic UI -11 2.8 7 -->
-            <a-entity id="platonic_UI" position="0 2.8 28" rotation="0 0 0">
-                <!-- Basic ring. -->
-                <a-ring radius-inner="1.55" radius-outer="1.65" material="shader: flat; color=: FFFFFF"></a-ring>
+            <!-- Platonic UI 0 3 26 -->
+            <a-entity id="platonic_UI" position="0 7 0" rotation="0 0 0" scale="2 2 2">
+                <!-- UI RINGS -->
+                <a-entity>
+                    <a-entity template="src: #ui-ring"
+                        data-radi="1.55"
+                        data-rado="1.65"
+                        data-thes="45"
+                        data-thel="90">
+                    </a-entity>
+                    <a-entity template="src: #ui-ring"
+                        data-radi="1.55"
+                        data-rado="1.65"
+                        data-thes="225"
+                        data-thel="90">
+                    </a-entity>
+                    <a-animation attribute="rotation"
+                       dur="5000"
+                       to="0 0 360"
+                       fill="backwards"
+                       direction="reverse"
+                       easing="ease-in-out"
+                       repeat="indefinite">
+                    </a-animation>
+                </a-entity>
+                <a-entity template="src: #ui-ring"
+                    data-radi="1.75"
+                    data-rado="1.85"
+                    data-thes="60"
+                    data-thel="60">
+                    <a-animation attribute="rotation"
+                       dur="5000"
+                       to="0 0 360"
+                       direction="normal"
+                       easing="linear"
+                       repeat="indefinite">
+                    </a-animation>
+                </a-entity>
+                <a-entity template="src: #ui-ring"
+                    data-radi="1.95"
+                    data-rado="2.05"
+                    data-thes="30"
+                    data-thel="30">
+                    <a-animation attribute="rotation"
+                       dur="2500"
+                       to="0 0 360"
+                       direction="reverse"
+                       easing="linear"
+                       repeat="indefinite">
+                    </a-animation>
+                </a-entity>
 
                 <a-circle position="0 0 0" radius="0.5" material="shader: flat; src: #platonic_disc_question" side="double">
                     <a-animation attribute="theta-length"
@@ -132,10 +191,13 @@
                 <a-entity template="src: #circle-pad" position="0 -1 0" data-image="#platonic_disc_CUBE"></a-entity>
                 <a-entity template="src: #circle-pad" position="0.87 -0.5 0" data-image="#platonic_disc_ICOSA"></a-entity>
                 <a-entity template="src: #circle-pad" position="0.87 0.5 0" data-image="#platonic_disc_DODECA"></a-entity>
+
+                <!-- background disc -->
+                <a-circle position="0 0 -0.25" radius="2.3" material="shader: flat; color: #003366" opacity="0.5" side="double">
             </a-entity>
 
             <!-- Super Sun -->
-            <a-entity position="0 7 0">
+            <a-entity position="16 9 -16">
                 <a-sphere material="shader: flat; src: #africa-hightech" radius="3.5">
                     <a-entity>
                         <a-sphere position="5 0 0" color="#ff7777" radius="0.5"></a-sphere>
@@ -153,7 +215,7 @@
                 <a-animation attribute="rotation" dur="30000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
             </a-entity>
 
-            <!-- Rotator -->
+            <!-- Banner Rotator -->
             <a-entity position="-16 1.01 -16">
                 <a-sphere position="0 5 0" radius="3" color="#000022" material="shader: flat"></a-sphere>
                 <a-cylinder position="0 3 0" radius="3" height="5" color="#ffffff" material="shader: flat; src: #Blue_Hex1"></a-cylinder>
@@ -223,18 +285,8 @@
 
             </a-entity>
 
-            <!-- Arches -->
-            <a-torus position="0 0 0" color="#ccEEDD" arc="180" radius="15" radius-tubular="0.5"></a-torus>
-            <a-torus position="0 0 0" color="#ccEEDD" arc="180" radius="30" radius-tubular="0.5"></a-torus>
-
-            <!-- Pillars -->
-            <a-cylinder opacity="1" position="16 1.25 -16" radius="5" height="5" color="#003366"></a-cylinder>
-
-            <a-entity position="-16 0.01 16">
-                <a-cylinder position="0 0 0" radius="9" height="2" color="#003366"></a-cylinder>
-                <a-cylinder position="0 0 0" radius="7" height="2.5" color="#003366"></a-cylinder>
-                <a-cylinder position="0 0 0" radius="5" height="3" color="#003366"></a-cylinder>
-                <!-- Platonic Gems -->
+            <!-- Platonic Gems Carosel -->
+            <a-entity position="-16 0 16">
                 <a-entity layout="type: circle; radius: 3" position="0 2 0">
                     <a-tetrahedron  position="0 3 0"    color="#f74c25" opacity="0.8" radius="1"></a-tetrahedron>
                     <a-octahedron   position="0 6 0"    color="#FFCC33" opacity="0.8" radius="1"></a-octahedron>
@@ -249,25 +301,45 @@
                        repeat="indefinite">
                    </a-animation>
                </a-entity>
-            </a-entity>
+           </a-entity>
 
+            <!-- Pillars //////////////////////////////////////////////////  -->
+
+            <!-- Pillar: CENTRAL -->
             <a-entity position="0 0.01 0">
-                <a-cylinder position="0 0 0" radius="9" height="2" color="#003366"></a-cylinder>
-                <a-cylinder position="0 0 0" radius="7" height="2.5" color="#003366"></a-cylinder>
-                <a-cylinder position="0 0 0" radius="5" height="3" color="#003366"></a-cylinder>
+                <a-cylinder radius="9" height="2" color="#003366"></a-cylinder>
+                <a-cylinder radius="7" height="2.5" color="#003366"></a-cylinder>
+                <a-cylinder radius="5" height="3" color="#003366"></a-cylinder>
             </a-entity>
 
+            <!-- Pillar: NE -->
+            <a-cylinder position="16 1.25 -16" radius="5" height="3" color="#003366"></a-cylinder>
+
+            <!-- Pillar: SE -->
+            <a-cylinder position="16 1.25 16" radius="5" height="3" color="#003366"></a-cylinder>
+
+            <!-- Pillar: SW -->
+            <a-entity position="-16 0.01 16">
+                <a-cylinder radius="9" height="2" color="#003366"></a-cylinder>
+                <a-cylinder radius="7" height="2.5" color="#003366"></a-cylinder>
+                <a-cylinder radius="5" height="3" color="#003366"></a-cylinder>
+            </a-entity>
+
+            <!-- Pillar: NW -->
             <a-entity position="-16 0.01 -16">
-                <a-cylinder position="0 0 0" radius="9" height="2" color="#003366"></a-cylinder>
-                <a-cylinder position="0 0 0" radius="7" height="2.5" color="#003366"></a-cylinder>
-                <a-cylinder position="0 0 0" radius="5" height="3" color="#003366"></a-cylinder>
+                <a-cylinder radius="9" height="2" color="#003366"></a-cylinder>
+                <a-cylinder radius="7" height="2.5" color="#003366"></a-cylinder>
+                <a-cylinder radius="5" height="3" color="#003366"></a-cylinder>
             </a-entity>
 
-            <a-cylinder opacity="1" position="16 1.25 16" radius="5" height="3" color="#003366"></a-cylinder>
 
             <!-- Pyramids -->
             <a-octahedron position="-30 0 0" color="#006699" radius="24"></a-octahedron>
             <a-octahedron position="30 0 0" color="#006699" radius="24"></a-octahedron>
+
+            <!-- Arches -->
+            <a-torus position="0 0 0" color="#ccEEDD" arc="180" radius="15" radius-tubular="0.5"></a-torus>
+            <a-torus position="0 0 0" color="#ccEEDD" arc="180" radius="30" radius-tubular="0.5"></a-torus>
 
             <!-- Platform -->
             <a-box position="0 0 0" color="#336699" depth="50" height="1.5" width="30" material="shader: flat; roughness: 1; metalness: 1; src: #JALAKA-GRID"></a-box>
