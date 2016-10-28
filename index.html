@@ -113,7 +113,8 @@
         <a-entity   camera
                     position="0 2 26"
                     universal-controls
-                    kinematic-bodyw
+                    kinematic-body
+                    jump-ability
                     acceleration="100"
                     easing="200"
                     fly="true">
@@ -350,10 +351,10 @@
             <a-torus position="0 0 0" color="#ccEEDD" arc="180" radius="30" radius-tubular="0.5"></a-torus>
 
             <!-- Platform -->
-            <a-box position="0 0 0" color="#336699" depth="50" height="1.5" width="30" material="shader: flat; roughness: 1; metalness: 1; src: #JALAKA-GRID"></a-box>
+            <a-box static-body position="0 0 0" color="#336699" depth="50" height="1.5" width="30" material="shader: flat; roughness: 1; metalness: 1; src: #JALAKA-GRID"></a-box>
 
             <!-- Dock -->
-            <a-box position="0 0 30" color="#336699" depth="20" height="1" width="10" material="shader: flat; roughness: 1; metalness: 1; src: #JALAKA-GRID"></a-box>
+            <a-box static-body position="0 0 30" color="#336699" depth="20" height="1" width="10" material="shader: flat; roughness: 1; metalness: 1; src: #JALAKA-GRID"></a-box>
 
         </a-entity>
 
