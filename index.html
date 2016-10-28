@@ -16,12 +16,10 @@
         <a-assets>
 
             <!-- IMAGE ASSETS /////////////////// -->
-            <img id="JALAKA_SIB"                src="/images/JALAKA_SIB.jpg">
-            <img id="GAIO_banner"               src="/images/GAIO_iconic_860x490.jpg">
-
             <img id="africa-hightech"           src="/images/03_Africa_Hitech_o_4_905.jpg">
             <img id="JALAKA-GRID"               src="/images/JALAKA_GRID_1024x1024.png">
             <img id="blue_fractalquap"          src="/images/blue_fractalquap.jpg">
+            <img id="Blue_Hex1"                 src="/images/Blue_Hex_UI_banner.jpg">
 
             <img id="platonic_disc_question"    src="images/platonic_masters/Platonic_0.png">
             <img id="platonic_disc_VE"          src="/images/platonic_masters/Platonic_000.png">
@@ -31,7 +29,8 @@
             <img id="platonic_disc_ICOSA"       src="/images/platonic_masters/Platonic_4.png">
             <img id="platonic_disc_DODECA"      src="/images/platonic_masters/Platonic_5.png">
 
-            <img id="Blue_Hex1"                 src="/images/Blue_Hex_UI_banner.jpg">
+            <img id="JALAKA_SIB"                src="/images/JALAKA_SIB.jpg">
+            <img id="GAIO_banner"               src="/images/GAIO_iconic_860x490.jpg">
 
             <!-- TEMPLATE ASSETS /////////////////// -->
 
@@ -54,7 +53,7 @@
                         height="0.5"
                         width="0.5"
                         material="shader: flat; opacity: 0.6; color: {{ hex }}"
-                        event-set__3="_event: mouseenter; scale: 1.2 1.2 1; depth: 0.5; opacity: 0.8; color: #0066CC"
+                        event-set__3="_event: mouseenter; scale: 1.2 1.2 1; depth: 0.5; opacity: 0.8; color: #7766CC"
                         event-set__4="_event: mouseleave; scale: 1 1 1"
                 </a-box>
             </script>
@@ -91,16 +90,20 @@
         <!-- SCENE ///////////////////////////////////////////////////////////// -->
 
         <!-- CAM -->
-        <a-entity camera look-controls wasd-controls position="0 2 6" acceleration="100" easing="200" fly="true">
+        <a-entity   camera
+                    position="0 2 26"
+                    look-controls
+                    wasd-controls
+                    acceleration="100"
+                    easing="200"
+                    fly="true">
             <!-- HUD
             <a-entity geometry="primitive: plane; height: 0.02; width: 0.02" position="-0.12 -0.07 -0.1"
                       material="color: white; opacity: 0.5"></a-entity>
             -->
             <a-cursor id="cursor" color="#2E3A87">
-                <a-animation begin="click" easing="ease-in" attribute="scale"
-                   fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
-                 <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
-                   from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
+                <a-animation begin="click" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
+                 <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
             </a-cursor>
         </a-entity>
 
@@ -108,8 +111,11 @@
         <!-- TEMPLE ///////////////////////////////////////////// -->
         <a-entity id="temple" position="0 0 -10">
 
-            <!-- Platonic UI -->
-            <a-entity id="platonic_UI" position="-11 2.8 7" rotation="0 90 0">
+            <!-- Platonic UI -11 2.8 7 -->
+            <a-entity id="platonic_UI" position="0 2.8 28" rotation="0 0 0">
+                <!-- Basic ring. -->
+                <a-ring radius-inner="1.55" radius-outer="1.65" material="shader: flat; color=: FFFFFF"></a-ring>
+
                 <a-circle position="0 0 0" radius="0.5" material="shader: flat; src: #platonic_disc_question" side="double">
                     <a-animation attribute="theta-length"
                        begin="click"
@@ -130,16 +136,16 @@
 
             <!-- Super Sun -->
             <a-entity position="0 7 0">
-                <a-sphere position="0 0 0" material="shader: flat; src: #africa-hightech" radius="3.5">
-                    <a-entity position="0 0 0">
+                <a-sphere material="shader: flat; src: #africa-hightech" radius="3.5">
+                    <a-entity>
                         <a-sphere position="5 0 0" color="#ff7777" radius="0.5"></a-sphere>
                         <a-animation attribute="rotation" dur="3000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
                     </a-entity>
-                    <a-entity position="0 0 0">
+                    <a-entity>
                         <a-sphere position="0 5 0" color="#77ff77" radius="0.5"></a-sphere>
                         <a-animation attribute="rotation" dur="3000" to="0 0 360" easing="linear" repeat="indefinite"></a-animation>
                     </a-entity>
-                    <a-entity position="0 0 0">
+                    <a-entity>
                         <a-sphere position="0 0 5" color="#7777ff" radius="0.5"></a-sphere>
                         <a-animation attribute="rotation" dur="3000" to="360 0 0" easing="linear" repeat="indefinite"></a-animation>
                     </a-entity>
@@ -176,11 +182,35 @@
             <!-- VOXY BOX CUBE -->
             <a-entity id="voxy-box-set" position="16 8 16" scale="2 2 2">
 
-                <a-entity template="src: #voxy-box-plane" position="0 0 0">
-                </a-entity>
                 <a-entity template="src: #voxy-box-plane" position="0 0 -1">
+                    <a-animation attribute="rotation"
+                       delay="13000"
+                       dur="3000"
+                       to="0 0 360"
+                       direction="reverse"
+                       easing="ease-in-out"
+                       repeat="indefinite">
+                    </a-animation>
+                </a-entity>
+                <a-entity template="src: #voxy-box-plane" position="0 0 0">
+                    <a-animation attribute="rotation"
+                       delay="10000"
+                       dur="3000"
+                       to="0 0 360"
+                       direction="normal"
+                       easing="ease-in-out"
+                       repeat="indefinite">
+                    </a-animation>
                 </a-entity>
                 <a-entity template="src: #voxy-box-plane" position="0 0 1">
+                    <a-animation attribute="rotation"
+                       delay="16000"
+                       dur="3000"
+                       to="0 0 360"
+                       direction="reverse"
+                       easing="ease-in-out"
+                       repeat="indefinite">
+                    </a-animation>
                 </a-entity>
                 <!--<a-entity template="src: #standard-rotation" data-roto="360 360 360"></a-entity> ??? -->
                 <a-animation attribute="rotation"
@@ -240,7 +270,10 @@
             <a-octahedron position="30 0 0" color="#006699" radius="24"></a-octahedron>
 
             <!-- Platform -->
-            <a-box position="0 0 0" color="#336699" depth="50" height="1.5" width="30" material="shader: flat; repeat: 50; roughness: 1; metalness: 1; src: #JALAKA-GRID"></a-box>
+            <a-box position="0 0 0" color="#336699" depth="50" height="1.5" width="30" material="shader: flat; roughness: 1; metalness: 1; src: #JALAKA-GRID"></a-box>
+
+            <!-- Dock -->
+            <a-box position="0 0 30" color="#336699" depth="20" height="1" width="10" material="shader: flat; roughness: 1; metalness: 1; src: #JALAKA-GRID"></a-box>
 
         </a-entity>
 
