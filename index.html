@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <title>Gaio.Space</title>
     <meta name="description" content="http://Gaio.Space">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,maximum-scale=1">
 
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v2.6.0/dist/aframe-extras.min.js"></script>
@@ -12,6 +15,10 @@
   </head>
   <body>
     <a-scene>
+
+        <!--
+            + static-body
+        -->
 
         <!-- Asset management system //////////////////////////////////////// -->
         <a-assets>
@@ -102,10 +109,11 @@
 
         <!-- SCENE ///////////////////////////////////////////////////////////// -->
 
-        <!-- CAM -->
+        <!-- CAM :::  -->
         <a-entity   camera
                     position="0 2 26"
                     universal-controls
+                    kinematic-bodyw
                     acceleration="100"
                     easing="200"
                     fly="true">
@@ -361,8 +369,7 @@
         <a-ocean width="128"
                  depth="128"
                  density="40"
-                 opacity="1"
-                 position="0 0 0"></a-ocean>
+                 opacity="1"></a-ocean>
 
     </a-scene>
   </body>
