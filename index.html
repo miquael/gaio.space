@@ -11,7 +11,9 @@
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v2.6.0/dist/aframe-extras.min.js"></script>
     <script src="https://rawgit.com/ngokevin/kframe/master/dist/kframe.min.js"></script>
-
+    <!--
+    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+    -->
   </head>
   <body>
     <a-scene>
@@ -149,8 +151,8 @@
                         data-thel="90">
                     </a-entity>
                     <a-animation attribute="rotation"
-                       dur="5000"
-                       to="0 0 360"
+                       dur="2500"
+                       to="0 0 180"
                        fill="backwards"
                        direction="reverse"
                        easing="ease-in-out"
@@ -349,6 +351,10 @@
             <!-- Arches -->
             <a-torus position="0 0 0" color="#ccEEDD" arc="180" radius="15" radius-tubular="0.5"></a-torus>
             <a-torus position="0 0 0" color="#ccEEDD" arc="180" radius="30" radius-tubular="0.5"></a-torus>
+
+            <!-- TEXT TITLES ???
+            <a-entity position="0 0 20" bmfont-text="text: Hello world; align: center; fnt: https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css"></a-entity>w
+            -->
 
             <!-- Platform -->
             <a-box static-body position="0 0 0" color="#336699" depth="50" height="1.5" width="30" material="shader: flat; roughness: 1; metalness: 1; src: #JALAKA-GRID"></a-box>
