@@ -80,6 +80,15 @@
                 </a-box>
             </script>
 
+            <!-- concentric pillar template -->
+            <script id="concentric-pillar" type="text/nunjucks">
+                <a-entity class="pillar">
+                    <a-cylinder radius="9" height="2" color="#003366"></a-cylinder>
+                    <a-cylinder radius="7" height="2.5" color="#003366"></a-cylinder>
+                    <a-cylinder radius="5" height="3" color="#003366"></a-cylinder>
+                </a-entity>
+            </script>
+
             <!-- voxy box plane template -->
             <script id="voxy-box-plane" type="text/nunjucks">
                 <a-entity  class="box-plane"
@@ -317,11 +326,7 @@
             <!-- Pillars //////////////////////////////////////////////////  -->
 
             <!-- Pillar: CENTRAL -->
-            <a-entity position="0 0.01 0">
-                <a-cylinder radius="9" height="2" color="#003366"></a-cylinder>
-                <a-cylinder radius="7" height="2.5" color="#003366"></a-cylinder>
-                <a-cylinder radius="5" height="3" color="#003366"></a-cylinder>
-            </a-entity>
+            <a-entity template="src: #concentric-pillar" position="0 0.01 0"></a-entity>
 
             <!-- Pillar: NE -->
             <a-cylinder position="16 1.25 -16" radius="5" height="3" color="#003366"></a-cylinder>
@@ -330,19 +335,10 @@
             <a-cylinder position="16 1.25 16" radius="5" height="3" color="#003366"></a-cylinder>
 
             <!-- Pillar: SW -->
-            <a-entity position="-16 0.01 16">
-                <a-cylinder radius="9" height="2" color="#003366"></a-cylinder>
-                <a-cylinder radius="7" height="2.5" color="#003366"></a-cylinder>
-                <a-cylinder radius="5" height="3" color="#003366"></a-cylinder>
-            </a-entity>
+            <a-entity template="src: #concentric-pillar" position="-16 0.01 16"></a-entity>
 
             <!-- Pillar: NW -->
-            <a-entity position="-16 0.01 -16">
-                <a-cylinder radius="9" height="2" color="#003366"></a-cylinder>
-                <a-cylinder radius="7" height="2.5" color="#003366"></a-cylinder>
-                <a-cylinder radius="5" height="3" color="#003366"></a-cylinder>
-            </a-entity>
-
+            <a-entity template="src: #concentric-pillar" position="-16 0.01 -16"></a-entity>
 
             <!-- Pyramids -->
             <a-octahedron position="-30 0 0" color="#006699" radius="24"></a-octahedron>
