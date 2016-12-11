@@ -1,7 +1,5 @@
 # GAIO.SPACE
 
-Just a sandbox for learning and experimenting with WebVR and A-Frame.
+A sandbox for learning and experimenting with WebVR and A-Frame.
 
-See it here: http://gaio.space
-
-Will continue to evolve ...
+Superceded by [Gaio.Space 2](https://github.com/miquael/gaio.space-2)
